@@ -72,7 +72,7 @@ Since we have freeradius well up and running we now have to install its extensio
 
 $sudo apt-get install freeradius-mysql
 
-########################################################################################################################################
+#############################################################################
 PERFOM THE NEXT SET OF STEPS ONLY AFTER COMPLETING THE "MySQL_Documentation"
 
 8. Edit the radius configuration file
@@ -106,3 +106,7 @@ And the radius database name to be used as the one we created earlier
 Uncomment the "read_clients = yes" line
 
 Save and close the file by pressing Ctrl+X, then Y, then Enter.
+
+9. Create a symbolic link for "/etc/freeradius/3.0/mods-available/sql" to "/etc/freeradius/3.0/mods-enabled/" and change ownership of the created link, then restart the freeradius service
+
+
