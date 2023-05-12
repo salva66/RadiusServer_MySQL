@@ -67,3 +67,9 @@ $sudo nano /etc/freeradius/3.0/users
 Within the users file, comment all lines pointing towards the created test user
 
 Since we have freeradius well up and running we now have to install its extension which is is freeradius-mysql since the database we are going to use is MySQL one hence we shall need to have freeradius service that can support MySQL databases.
+
+7. Installing freeradius-mysql
+
+$sudo apt-get install freeradius-mysql
+
+
