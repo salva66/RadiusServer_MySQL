@@ -8,6 +8,7 @@ $sudo apt-get upgrade
 $sudo apt-get install freeradius
 
 4. Create a test client that shall help test if the installation of radius is well.
+
 a) Determine the version of the installed freeradius
 $freeradius -v
 This version number shall be used throughout to access the files within the freeradius folder
