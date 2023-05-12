@@ -5,6 +5,7 @@ $sudo apt-get update
 $sudo apt-get upgrade
 
 3. Install FreeRadius
+
 $sudo apt-get install freeradius
 
 4. Create a test client that shall help test if the installation of radius is well.
