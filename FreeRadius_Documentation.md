@@ -68,8 +68,41 @@ Within the users file, comment all lines pointing towards the created test user
 
 Since we have freeradius well up and running we now have to install its extension which is is freeradius-mysql since the database we are going to use is MySQL one hence we shall need to have freeradius service that can support MySQL databases.
 
-7. Installing freeradius-mysql
+7. Install freeradius-mysql
 
 $sudo apt-get install freeradius-mysql
 
+########################################################################################################################################
+PERFOM THE NEXT SET OF STEPS ONLY AFTER COMPLETING THE "MySQL_Documentation"
 
+8. Edit the radius configuration file
+
+$sudo nano /etc/freeradius/3.0/mods-available/sql
+
+Uncomment the following lines by removing the '#' at the beginning of each line:
+
+    driver = "rlm_sql_${dialect}"
+    
+and add comment to
+
+    driver = "rlm_sql_null"
+
+In the mysql function comment the inner 'tls' funtion (all of its contents)
+
+In the Connection Info, add the details of the created user (in the database) by modifying the following lines, which for our case are:
+
+    server = "localhost"
+    
+    port = 3306
+    
+    login = "newuser"
+    
+    password = "password"
+
+And the radius database name to be used as the one we created earlier
+
+    radius_db = "radius_users"
+
+Uncomment the "read_clients = yes" line
+
+Save and close the file by pressing Ctrl+X, then Y, then Enter.
