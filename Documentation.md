@@ -22,6 +22,8 @@ b)run
 
 $sudo nano /etc/freeradius/3.0/clients.conf
 
+NB: The 3.0 is the base version number
+
 Within the configuration file, create a new client under the clients section having the following credentials
 
 ##new client
@@ -33,4 +35,15 @@ secret	= testrad123!
 nas_type = other
 
 c) restart freeradius
+
 $sudo /etc/init.d/freeradius restart
+
+5. Configure the users file for the new user
+
+$sudo nano /etc/freeradius/3.0/users
+
+Within the #local test user account set the following values for the user
+
+test-user-local Cleartext-Password := "hello"
+
+Reply-Message := "Hello, %{User-Name}"
