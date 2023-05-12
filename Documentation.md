@@ -47,3 +47,23 @@ Within the #local test user account set the following values for the user
 test-user-local Cleartext-Password := "hello"
 
 Reply-Message := "Hello, %{User-Name}"
+
+6. Now, yo can test the created user account against your radius server
+
+a) you MUST start freeradius in debug mode
+
+$sudo /etc/init.d/freeradius stop
+
+$sudo freeradius -X
+
+b) Testing the user if can access locally
+
+$radtest test-user-local hello 127.0.0.1 0 testing123
+
+Since the local test is successfull, we can now disable the created useraccount as we shall not require it any further
+
+$sudo nano /etc/freeradius/3.0/users
+
+Within the users file, comment all lines pointing towards the created test user
+
+Since we have freeradius well up and running we now have to install its extension which is is freeradius-mysql since the database we are going to use is MySQL one hence we shall need to have freeradius service that can support MySQL databases.
